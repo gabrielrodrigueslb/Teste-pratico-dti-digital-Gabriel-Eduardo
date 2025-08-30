@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo para os Drones
+model Drone {
+  id          Int     @id @default(autoincrement())
+  model       String  @default("Standard")
+  maxWeight   Float   // Capacidade máxima de peso em kg
+  battery     Int     // Nível da bateria em %
+  status      DroneStatus @default(IDLE)
+  packages    Package[] // Um drone pode ter vários pacotes
+}
+
+// Modelo para os Pacotes (Pedidos)
+model Package {
+  id            Int      @id @default(autoincrement())
+  weight        Float    // Peso do pacote em kg
+  destinationX  Int      // Coordenada X do destino
+  destinationY  Int      // Coordenada Y do destino
+  priority      Priority @default(MEDIUM)
+  status        PackageStatus @default(PENDING)
+
+  droneId       Int?
+  drone         Drone?   @relation(fields: [droneId], references: [id])
+}
+
+// Enums para status e prioridades (boas práticas)
+enum DroneStatus {
+  IDLE
+  LOADING
+  IN_FLIGHT
+  DELIVERING
+  RETURNING
+  CHARGING
+}
+
+enum PackageStatus {
+  PENDING
+  IN_TRANSIT
+  DELIVERED
+  FAILED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
