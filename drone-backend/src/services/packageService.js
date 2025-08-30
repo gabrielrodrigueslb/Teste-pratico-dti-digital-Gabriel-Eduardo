@@ -18,3 +18,21 @@ export async function createPackage(packageData) {
     });
     return newPackage;
 }
+
+export async function getPendingPackages() {
+    const packages = await prisma.package.findMany({
+      where: {
+        status: 'PENDING'
+      },
+    });
+
+    const priority = { 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 };
+
+    packages.sort((a, b) => {
+      const priorityA = priority[a.priority];
+      const priorityB = priority[b.priority];
+      return priorityB - priorityA; // Ordena em ordem decrescente de prioridade
+    });
+    
+    return packages;
+}

@@ -3,11 +3,18 @@ import * as packageService from '../services/packageService.js';
 export async function createPackage(req, res) {
     try{
         const newPackage = await packageService.createPackage(req.body);
-        // 201 Created
         res.status(201).json(newPackage);
     } catch (error) {
-        // 400 Bad Request
         res.status(400).json({message: error.message});
     }
 
+}
+
+export async function getPendingPackages(req, res) {
+    try{
+        const packages = await packageService.getPendingPackages();
+        res.status(200).json(packages);
+    } catch (error) {
+        res.status(500).json({message: 'Erro ao buscar pacotes pendentes.'});
+    }
 }
