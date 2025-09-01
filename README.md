@@ -52,7 +52,7 @@ Ele é composto por:
 
 ### 1. Clone o repositório
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/gabrielrodrigueslb/Teste-pratico-dti-digital-Gabriel-Eduardo.git
 cd <pasta-do-projeto>
 ```
 
@@ -126,20 +126,9 @@ Extras implementados:
 
 ---
 
-## 📩 Entrega
-
-Conforme solicitado pela dti digital, este projeto deve ser entregue via **repositório público no GitHub**, com o link enviado para **rh.hakuna@dtidigital.com.br** até a data limite.  
-
-No corpo do e-mail, informar a tecnologia escolhida.  
-Título do e-mail: **Teste prático dti digital – [Seu Nome]**  
-
----
-
 ## 🤖 Uso de IA
 
 Este README foi gerado parcialmente com apoio de ferramentas de Inteligência Artificial (IA), conforme sugestão da dti.  
 Foram utilizadas para estruturar a documentação e organizar requisitos, sem substituir o desenvolvimento da lógica e do código.  
 
 ---
-
-Feito com 💻 e 🚀 por Gabriel Eduardo
