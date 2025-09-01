@@ -11,7 +11,7 @@ O sistema gerencia todo o ciclo de entregas, desde o cadastro dos pacotes até a
 Ele é composto por:
 
 - **Backend (Node.js + Express + Prisma + SQLite):** responsável pela lógica de negócio, regras de alocação e API RESTful.  
-- **Frontend (React + Vite + Tailwind + TypeScript):** painel administrativo para monitoramento em tempo real das entregas e drones.
+- **Frontend (React + Vite + Tailwind + TypeScript):** painel administrativo para monitoramento em tempo real das entregas e drones.  
 
 ---
 
@@ -90,6 +90,48 @@ npm run dev
 
 ---
 
+## 🧪 Testes
+
+### Instalação
+Os testes utilizam **Jest** e **Supertest**.  
+Já estão configurados no projeto:
+
+```bash
+cd drone-backend
+npm install --save-dev jest supertest babel-jest @babel/preset-env
+```
+
+### Configuração
+- `babel.config.js` → garante suporte a ESModules (`import/export`).  
+- `jest.config.js` → define ambiente de testes Node.  
+- `setupTests.js` → mock global para silenciar logs de erro (opcional).  
+
+### Rodando testes
+```bash
+npm test
+```
+
+### Estrutura dos testes
+- `tests/services/*` → testa regras de negócio (mock do Prisma).  
+- `tests/controllers/*` → testa controllers e tratamento de erros.  
+- `tests/integration/*` → testa rotas reais com `supertest`.  
+
+Exemplo de saída:
+```
+ PASS  src/tests/services/allocationService.test.js
+ PASS  src/tests/services/dronesService.test.js
+ PASS  src/tests/services/packageService.test.js
+ PASS  src/tests/controllers/allocationController.test.js
+ PASS  src/tests/controllers/dronesController.test.js
+ PASS  src/tests/controllers/packageController.test.js
+ PASS  src/tests/integration/server.test.js
+
+Test Suites: 7 passed, 7 total
+Tests:       17 passed, 17 total
+```
+
+---
+
 ## 🌐 Endpoints Principais
 
 | Método | Endpoint                | Descrição |
@@ -129,6 +171,4 @@ Extras implementados:
 ## 🤖 Uso de IA
 
 Este README foi gerado parcialmente com apoio de ferramentas de Inteligência Artificial (IA), conforme sugestão da dti.  
-Foram utilizadas para estruturar a documentação e organizar requisitos, sem substituir o desenvolvimento da lógica e do código.  
-
----
+Foram utilizadas para estruturar a documentação, organizar requisitos e auxiliar na escrita de testes, sem substituir o desenvolvimento da lógica e do código.  

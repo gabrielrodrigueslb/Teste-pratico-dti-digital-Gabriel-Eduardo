@@ -1,4 +1,4 @@
-import { BatteryFull, Gauge, Weight, Pencil, PlaneTakeoff, Package } from 'lucide-react';
+import { BatteryFull, Gauge, Weight, Pencil, Package } from 'lucide-react';
 import { translateStatus } from '@/utils/translations';
 import type { Drone } from '@/types/types';
 
@@ -8,7 +8,7 @@ interface DroneCardProps {
   onAllocate: (drone: Drone) => void;
 }
 
-export default function DroneCard({ drone, onEdit, onAllocate }: DroneCardProps) {
+export default function DroneCard({ drone, onEdit}: DroneCardProps) {
   const isIdle = drone.status === 'IDLE';
 
   return (
@@ -50,13 +50,7 @@ export default function DroneCard({ drone, onEdit, onAllocate }: DroneCardProps)
         <button onClick={() => onEdit(drone)} className="flex-1 flex items-center justify-center gap-2 p-2 bg-gray-600 hover:bg-gray-700 rounded-md text-sm transition-colors">
           <Pencil size={16} /> Editar
         </button>
-        <button
-          onClick={() => onAllocate(drone)}
-          disabled={!isIdle}
-          className="flex-1 flex items-center justify-center gap-2 p-2 bg-blue-500 hover:bg-blue-600 rounded-md text-sm transition-colors disabled:bg-gray-800 disabled:cursor-not-allowed"
-        >
-          <PlaneTakeoff size={16} /> Alocar Pacotes
-        </button>
+       
       </div>
     </div>
   );
