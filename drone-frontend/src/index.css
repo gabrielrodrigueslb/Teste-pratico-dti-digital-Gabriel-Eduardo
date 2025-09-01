@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  font-family: 'Geist', sans-serif, Arial;
+
+  /* Tema claro padrão */
+  --primary-color: #3038d5;
+  --color-background: #fff;
+  --color-foreground: #ebeaea;
+  --color-text: #060606;
+  --border-color: #bab9b9;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Tema escuro automático */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1b1b1f;
+    --color-foreground: #161618;
+    --color-text: #f4f4f4;
+    --border-color: #262626;
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-content {
+  background-color: var(--color-foreground); /* Usa a cor do seu tema */
+  padding: 2rem;
+  border-radius: 0.5rem;
+  min-width: 400px;
+}
+
+button {
+  cursor: pointer;
+}

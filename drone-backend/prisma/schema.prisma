@@ -12,6 +12,7 @@ model Drone {
   id          Int     @id @default(autoincrement())
   model       String  @default("Standard")
   maxWeight   Float   // Capacidade máxima de peso em kg
+  maxDistance Float   @default(10) // Distância máxima de voo em km
   battery     Int     // Nível da bateria em %
   status      DroneStatus @default(IDLE)
   packages    Package[] // Um drone pode ter vários pacotes
