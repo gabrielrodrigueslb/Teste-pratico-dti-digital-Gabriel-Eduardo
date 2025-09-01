@@ -80,7 +80,7 @@ export default function Dashboard() {
         <Card title="Entregues" icon={<PackageCheck />} value={entregues} infoCard={true} description="Total de entregas " />
         <Card title="Drones Disponíveis" icon={<DroneIcon />} value={dronesDisponiveis} infoCard={true} description="Aguardando processamento" />
       </div>
-      <aside className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-4 mt-5 gap-8 ">
+      <aside className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-4 mt-5 gap-4 ">
         <Card infoCard={false} style="col-1 col-end-4 ">
           <h2 className="text-base font-semibold opacity-90 ">
             Pedidos Pendentes
